@@ -1,0 +1,255 @@
+---
+layout: post
+title: "ECOSIA | Feel Free to Become Green"
+date: "23 Gennaio 2019"
+author: Nicholas Missineo, Elisa Pirotta, Enzo Benincasa
+group: Green Team
+output:
+  tufte::tufte_html: default
+highlight: textmate
+---
+
+Oggigiorno il mondo soffre di una profonda crisi legata all'ambiente. 
+Le conseguenze disastrose di nazioni che distruggono il proprio suolo si possono vedere ovunque; in nessun paese, inoltre, il naturale equilibrio del paesaggio terrestre è rimasto inalterato.
+Il comportamento irresponsabile di Stati, imprese, comunità e singole persone abbraccia mortalmente la natura in un'era in cui il consumo e il conseguente inquinamento sono irrefrenabili.  L'unico valido obiettivo di una società di business sembra il profitto, senza tuttavia pensare alle conseguenze dei propri gesti e senza utilizzare sapientemente le proprie energie. 
+La situazione descritta costituisce la fotografia attuale dell'ecosistema in cui siamo inseriti, dell'ambiente di cui tutti, almeno una volta, ci siamo disinteressati. Occorre dunque un'inversione di tendenza per arrestare questo declino e non è troppo tardi per impegnarsi e fare in modo che le proprie azioni impattino positivamente la società e l'ambiente.  
+Stati, imprese e comunità stanno realizzando una transizione verso un pensiero più "green". Il significato di "essere green" assume quindi una duplice valenza: ecologica ed economica. Le aziende di tipo benefit corporation si propongono dunque di associare strettamente l'obiettivo economico dei profitti con missioni ecologiche finalizzate al rispetto e alla tutela dell'equilibrio dell'ecosistema.
+Si compiono così i primi passi verso una delle più importanti tendenze dei nostri tempi: il movimento crescente di aziende che usano il proprio business come una forza per il bene comune. 
+Non solo le imprese, ma anche ogni singola persona può contribuire alla salvaguardia dell'ambiente. Il modo è semplice e al passo con i tempi e con le esigenze del consumatore, non costa nessuna fatica e non comporta alcun dispendio economico. Qual è questo modo?
+
+Iniziare ad utilizzare **Ecosia**.
+
+
+## Che cos'è Ecosia?
+```{marginfigure}
+Come appare il motore di ricerca.
+```
+```{r, error=FALSE, message=F,warning=F,echo = F, out.width="100%"}
+library(magick)
+newlogo <- image_read("Cattura1.PNG")
+oldlogo <- image_read("Cattura2.PNG")
+oldlogo2 <- image_read("Cattura3.PNG")
+oldlogo3 <- image_read("Cattura4.PNG")
+image_animate(c(newlogo, oldlogo, oldlogo2, oldlogo3), fps = 0.4)
+
+```
+
+
+A livello giuridico Ecosia è la prima *B-corporation* tedesca fondata dal suo attuale CEO *Christian Kroll* nel dicembre del 2009. 
+A livello tecnologico-commerciale Ecosia è un motore di ricerca offerto da **Bing** la cui estensione può essere aggiunta a qualunque browser si stia utilizzando sul proprio dispositivo mobile o fisso.
+Più nel dettaglio, Ecosia si occupa di finanziare con parte dei suoi proventi organizzazioni partner incaricate della riforestazione dei paesi maggiormente bisognosi. 
+Ecosia si definisce proprio per questo una *benefit-corporation*, vale a dire un'azienda diversa il cui obiettivo di profitto abbraccia una missione più alta: una responsabilità volta ad apportare benefici all'ambiente, alle persone ecc. 
+Ecosia utilizza infatti un modello sociale di business con cui garantisce che almeno l'80% dell'eccedenza dei suoi ricavi venga devoluto ad associazioni sostenenti programmi contro la deforestazione.
+Negli anni associazioni quali WWF, da dicembre del 2009 ad aprile del 2013, TNC - The Nature Conservancy - da luglio del 2013 a settembre del 2014, WeForest da ottobre del 2014 ad aprile del 2016 ecc. hanno ricevuto donazioni con le quali hanno potuto risanare zone in cui la desertificazione stava ormai prendendo il sopravvento e ripristinare, come diretta conseguenza, le economie locali.
+
+
+## Come ottiene i suoi proventi Ecosia?
+
+
+Come con tutti i motori di ricerca, il fatturato di Ecosia si genera tramite i ricavi pubblicitari delle ricerche effettuate dagli utenti. Per ogni click dell'utente a un *advertisement*, Ecosia riceve un'entrata, finanziata dall'inserzionista pubblicitario. Il click all'annuncio pubblicitario non è la sola condizione necessaria per il guadagno dell'azienda: navigare in Internet e fare ricerche contribuisce alla diffusione dell'informazione incrementando di fatto il numero di utenti Ecosia. L'aumento degli utenti attivi consente un ampliamento della visibilità per gli inserzionisti.
+
+
+## Perché puntare su Ecosia?
+
+
+L'aspetto innovativo del progetto di Ecosia è il fatto che l'utente venga coinvolto indirettamente nella battaglia per la salvaguardia dell'ambiente: il suo contributo non è di fatto diretto perché all'interno del processo che dalla ricerca web va all'albero piantato sono presenti tutta una serie di meccanismi che spezzano l'usuale idea di donazione.
+L'offerta è incorporata in un'attività quotidiana di cui l'utente può tener traccia attraverso il contatore di alberi personale che traduce il numero di ricerche in numero di alberi piantati in rapporto 45 a 1 approssimativamente. 
+Il processo è dunque semplice, veloce e trasparente; l'utente deve soltanto preoccuparsi di installare l'estensione e continuare a fare ricerche come d'abitudine: sarà poi Ecosia a distribuire i suoi guadagni all'interno e all'esterno dell'azienda. 
+
+
+Esistono diverse motivazioni che muovono il capitale nella direzione di imprese sostenibili, primo fra tutti la creazione di valore a lunga durata.  
+
+
+
+```{marginfigure}
+Andamento dei guadagni mensili.
+```
+```{r, error=FALSE, message=F,warning=F,echo = F, out.width="100%"}
+library(ggplot2)
+ecosia<-read.csv("ecosia.csv",sep=";")
+total.income<-ecosia$Total.income.this.month
+V2.final<-c(744079.8,782187.2,719959.6,780834.8,764697.9,729088.6)
+V2.final<-c(total.income[64],V2.final)
+new.dt1<-as.Date("2013-07-01")
+new.date <- seq(new.dt1, length = 70, by = "month")
+ggplot()+
+  geom_line(aes(x=new.date[1:64], y=total.income),col="#99FF33")+
+  geom_line(aes(x=new.date[64:70], y=V2.final),col="#006633")+
+  labs(title = "Income of Ecosia",caption = "Ecosia source")+
+  xlab("Date")+ ylab("Value in euros")+
+  scale_fill_discrete(name="Factors",aes())+
+  theme(
+        panel.background = element_rect(fill = "transparent", colour = "transparent")) 
+
+```
+
+
+Il fatturato di Ecosia è in continua crescita e se i guadagni aumentano, lo stesso succede al numero di alberi piantati mensilmente: tolti riserve, costi operativi quali salari, tasse ecc. e investimenti in pubblicità, almeno l'80% del cosiddetto *surplus* viene devoluto direttamente alle associazioni partner mentre il restante viene stanziato in un fondo che garantisca loro la presenza costante di supporto economico.   
+
+
+
+```{marginfigure}
+Andamento del numero di alberi piantati mensilmente.
+```
+```{r, error=FALSE, message=F,warning=F,echo = F, out.width="100%"}
+library(magick)
+ecosia<-read.csv("ecosia.csv",sep=";")
+attach(ecosia)
+library(ggplot2)
+new.dt1<-as.Date("2013-07-01")
+new.date <- seq(new.dt1, length = 70, by = "month")
+number.tree.planted<-ecosia$Number.tree.planted
+v2<-c(2247908,2077865,1763137,3736624,2116960,1738943)
+V2.final<-c(number.tree.planted[64],v2)
+ggplot()+
+  geom_line(aes(x=new.date[1:64], y=number.tree.planted),col="#99FF33")+
+  geom_line(aes(x=new.date[64:70], y=V2.final),col="#006633")+
+  labs(title = "Number of tree planted",caption = "Ecosia source")+
+  xlab("Date")+ ylab("Value in euros")+
+  scale_fill_discrete(name="Factors",aes())+
+  theme(
+    panel.background = element_rect(fill = "transparent", colour = "transparent"))
+
+```
+
+
+La messa a dimora di alberi è il propulsore dell'investimento in pubblicità e dello stanziamento mensile dei fondi dell'azienda: un finanziamento all'ambiente, quello di Ecosia, che dal dicembre del 2009 all'ottobre di quest'anno ha superato i 9 milioni di Euro e i 47 milioni di alberi piantati: queste informazioni sono pubbliche e rese disponibili in piena trasparenza grazie ai *financial reports* e alle *Tree Planting Receipts*.   
+
+
+
+```{marginfigure}
+Andamento del numero di alberi piantati per ogni euro guadagnato.
+```
+```{r, error=FALSE, message=F,warning=F,echo = F, out.width="100%"}
+library(magick)
+ecosia<-read.csv("ecosia.csv",sep=";")
+attach(ecosia)
+library(ggplot2)
+new.dt1<-as.Date("2013-07-01")
+new.date <- seq(new.dt1, length = 70, by = "month")
+cost_for_tree<-ecosia$Number.tree.planted/ecosia$Investiment.on.tree.planting
+v2<-c(6.5677002,4.3188434,4.7592627,8.4335875,6.7913873,5.2303932)
+V2.final<-c(cost_for_tree[64],v2)
+
+
+ggplot()+
+  geom_line(aes(x=new.date[1:64], y=cost_for_tree),col="#99FF33")+
+  geom_line(aes(x=new.date[64:70], y=V2.final),col="#006633")+
+  labs(title = "Tree planted per euros earned",caption = "Ecosia source")+
+  xlab("Date")+ ylab("Value in euros")+
+  scale_fill_discrete(name="Factors",aes())+
+  theme(
+    panel.background = element_rect(fill = "transparent", colour = "transparent"))
+
+```
+
+
+In un mercato sempre più competitivo diventa difficile per le nuove aziende riuscire a farsi strada, ma con la costruzione di un business che abbia al centro finalità riconoscibilmente positive diventa un ottimo modo per differenziarsi, emergere e connettersi in maniera efficace con i consumatori. 
+Ecosia punta da sempre su mezzi di comunicazione che siano persuasivi e che riescano a diffondere il messaggio nel mondo.
+
+* Ecosia ha sfidato il tempo e al Web Summit 2018 di Lisbona ha dichiarato il suo obiettivo di 1 miliardo di alberi piantati entro il 2020, riscuotendo molto successo.
+* Nella stessa occasione Ecosia ha piantato un albero per ogni partecipante, in totale 70.000.
+* Ecosia ha proposto l'inserimento in azienda di un badge virtuale che permetta di pubblicizzare l'utilizzo del motore di ricerca che pianta alberi. 
+
+
+```{marginfigure}
+Andamento della quota di Income spesi per la comunicazione.
+
+```
+```{r, error=FALSE, message=F,warning=F,echo = F, out.width="100%"}
+library(magick)
+ecosia<-read.csv("ecosia.csv",sep=";")
+attach(ecosia)
+library(ggplot2)
+new.dt1<-as.Date("2013-07-01")
+new.date <- seq(new.dt1, length = 70, by = "month")
+kpi.communication<-Spreading.the.Word/Total.income.this.month
+nas<-which(is.na(kpi.communication) == 1)
+kpi.communication[nas]<-0
+#Da SSM
+V.communication<-c(0.1237397,0.1990617,0.2052313,0.3788137,0.1508191,0.2261411)
+V.communication<-c(kpi.communication[64],V.communication)
+ggplot()+
+  geom_line(aes(x=new.date[1:64], y=kpi.communication),col="#99FF33")+
+  geom_line(aes(x=new.date[64:70], y=V.communication),col="#006633")+
+  labs(title = "Spreading the world",caption = "Ecosia source")+
+  xlab("Date")+ ylab("Value in euros")+
+  scale_fill_discrete(name="Factors",aes())+
+  theme(
+    panel.background = element_rect(fill = "transparent", colour = "transparent"))
+
+```
+
+
+
+Un'azienda dovrebbe "passare" ad Ecosia scegliendo la direzione del progresso e dimostrando il proprio impatto positivo, pur mantenendosi un'impresa a scopo lucrativo. Si tratta dunque di un passaggio di qualità, da azienda "for-profit" a azienda "for-purpose".  
+L'utilizzo di Ecosia permette, all'azienda che lo introduce, di sposare la causa ambientale con la visibilità dell'immagine che vuole dare di sé. 
+I potenziali interessati sono gli investitori: essi infatti mostrano un interesse crescente verso quelle compagnie che hanno un impatto sociale o ambientale positivo, che ai loro occhi appaiono "green".
+Poiché da un lato vi è la necessità di un'inversione di tendenza che arresti il declino ambientale e che riporti l'equilibrio dell'ecosistema e dall'altro la volontà delle aziende di apparire "green", con Ecosia entrambi gli obiettivi possono essere perseguiti, offrendo un servizio gratuito che da una parte conferisca all'azienda l'immagine positiva di sé che vuole trasmettere e dall'altra la possibilità di vedere il contributo che essa stessa apporta all'ambiente. 
+
+
+
+> *The B Corp movement is, to me, a product of a general improvement in our understanding of economic behaviour. Through greater appreciation of the real motives that drive and excite people, B Corporations provide a significant new opportunity for investors. I think they could make more profits than any other types of companies.*   
+(Robert Shiller, Sterling Professor of Economics, Yale University and Nobel Laureate)
+
+
+
+## Quanto è determinante la visibilità per Ecosia?
+
+
+Negli ultimi anni sempre più servizi web sono stati messi a disposizione delle aziende per ottenere migliori risultati di marketing.  Software per il calcolo di audience e rating permettono alle imprese di dirottare le proprie energie e sviluppare nuove idee nella direzione della crescita del traffico verso il proprio sito. 
+
+
+
+```{marginfigure}
+Global rating
+```
+```{r, error=FALSE, message=F,warning=F,echo = F, out.width="100%"}
+library(magick)
+newlogo <- image_read("Popularity Ecosia.PNG")
+oldlogo <- image_read("Popularity Google.PNG")
+oldlogo2 <- image_read("Popularity Bing.PNG")
+image_animate(c(newlogo, oldlogo,oldlogo2), fps = 0.25)
+
+```
+
+
+Ecosia in questi anni si è dimostrata all'altezza dei suoi obiettivi incrementando la sua popolarità in maniera nettamente superiore ad altri motori di ricerca selezionati per affinità e connessioni. A livello globale, in base ad una combinazione di media giornaliera di visitatori del sito e pagine visualizzate sul sito nei tre mesi precedenti, Ecosia ha progredito di 161 posizioni, anche qui rispetto ai tre mesi precedenti, scalando il *Traffic Rank* e posizionandosi alla posizione 671. Il sito con la più alta combinazione di visitatori e pagine visualizzate è classificato alla prima posizione, e Google ne è l'emblema. Per quanto riguarda Bing, il motore di ricerca partner di Ecosia, si classifica alla posizione 41 ma con un miglioramento di sole 4 posizioni rispetto ai tre mesi precedenti. A prescindere della consapevolezza che un confronto tra *rank* così distanti all'interno di una classifica va sempre nella direzione di essere a vantaggio della posizione più sfavorevole, si mettono in luce aspetti legati alla capacità di comunicazione e alla diffusione di informazioni che attirano sempre più utenti a far parte della *community* di Ecosia contribuendo ad una sempre maggiore popolarità e di fatto ad un orizzonte sempre più "green".
+
+
+```{r echo = FALSE,out.width="100%",message=FALSE,warning= FALSE}
+library(magick)
+library(tm)
+library(stringr)
+library(readxl)
+setwd("C:\\Users\\Utente\\Desktop\\Univerisità\\Statistical learning\\Ecosia\\Financial report\\immagini")
+## ---- Scraping from Instagram
+oldlogo <- image_read("instagram.PNG")
+oldlogo2 <- image_read("twitter.PNG")
+image_animate(c( oldlogo,oldlogo2), fps = 0.25)
+
+```
+
+
+Dati sulla popolarità di Ecosia sono altresì facilmente reperibili dando un'occhiata alle attività nella rete sociale: oltre 37 mila *followers* seguono Ecosia su Twitter e oltre 79 mila su Instagram. L'azienda, che riserva ogni mese una quota dei ricavi per le spese pubblicitarie con l'obiettivo di raggiungere sempre più persone, ha un profondo interesse verso la percezione del proprio messaggio da parte della comunità. Per quanto riguarda l'utenza dei due *Social Network* pocanzi citati, le due *word cloud* riportate sotto mostrano quali siano i concetti maggiormente discussi e le parole chiave che esprimono maggiore vicinanza all'idea di Ecosia.
+
+
+## Shiny App
+
+Una cartina geografica interattiva che indica quali sono i paesi dove Ecosia ha piantato gli alberi, quanti ne ha piantati e dove intende continuare la sua opera di riforestazione:
+
+>   https://elisapirotta.shinyapps.io/appshiny/
+
+## Riferimenti
+
+
+> 
+-	https://www.ecosia.org/
+-	https://www.alexa.com/siteinfo/ecosia.org
+-	https://www.alexa.com/siteinfo/google.com
+-	https://www.alexa.com/siteinfo/bing.com
+-	https://www.instagram.com/ecosia/
+-	https://twitter.com/Ecosia
+-	https://bcorporation.net/b-economy
+-	https://ecosia.dropmark.com/369415?page=1
+-	https://cbey.yale.edu/sites/default/files/Just%20Good%20Business_An%20Investor%27s%20Guide%20to%20B%20Corps_March%202018.pdf
